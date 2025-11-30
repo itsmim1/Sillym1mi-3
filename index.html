@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>for astie :3</title>
+<style>
+  /* Genel stil / Y2K cute-core görünüm */
+  :root{
+    --pink:#ff9ccf;
+    --baby:#ffd6f0;
+    --mint:#cffff0;
+    --lav:#d5b3ff;
+    --accent:#ff6fb5;
+    --paper:#fffef6;
+    --shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  html,body{
+    height:100%;
+    margin:0;
+    font-family: "Trebuchet MS", "Comic Sans MS", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.15), transparent),
+                linear-gradient(120deg, rgba(255,235,245,0.6), rgba(235,245,255,0.5));
+    background-color: #ffeef8;
+    overflow:hidden;
+  }
+
+  /* Header */
+  header{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:40;
+    background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.2));
+    padding:8px 18px;
+    border-radius:20px;
+    border:2px solid rgba(255,255,255,0.6);
+    box-shadow: 0 6px 18px rgba(170,80,150,0.08), 0 2px 0 rgba(255,255,255,0.6) inset;
+    backdrop-filter: blur(6px);
+    letter-spacing:1px;
+    font-weight:700;
+    color: #7a2b62;
+    font-size:20px;
+  }
+
+  /* Sparkles arkaplan detayları */
+  .sparkles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(255,255,255,0.9) 0px, rgba(255,255,255,0) 10px),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.85) 0px, rgba(255,255,255,0) 12px),
+      radial-gradient(circle at 50% 40%, rgba(255,255,255,0.95) 0px, rgba(255,255,255,0) 8px);
+    mix-blend-mode: screen;
+    opacity:.9;
+  }
+
+  /* Orta içerik */
+  .stage{
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10;
+    position:relative;
+    gap:20px;
+  }
+
+  /* Y2K düğme stili */
+  .cute-btn{
+    --w:220px;
+    width:var(--w);
+    height:74px;
+    border-radius:24px;
+    background: linear-gradient(180deg, var(--pink), var(--accent));
+    color:white;
+    font-weight:800;
+    font-size:18px;
+    letter-spacing:1px;
+    border:3px solid rgba(255,255,255,0.85);
+    box-shadow: 0 12px 30px rgba(255,105,170,0.2), 0 3px 0 rgba(255,255,255,0.6) inset;
+    cursor:pointer;
+    position:relative;
+    z-index:20;
+    transition:transform .12s ease;
+  }
+  .cute-btn:active{ transform: translateY(2px) scale(.995); }
+  .cute-btn .shine{
+    position:absolute;
+    top:6px; left:8px; right:8px;
+    height:18px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.08));
+    border-radius:12px;
+    mix-blend-mode:overlay;
+    pointer-events:none;
+  }
+
+  /* Stickerlar ve detaylar etrafta */
+  .left-sticker, .right-sticker{
+    position:fixed;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:5;
+    width:140px;
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.12));
+    opacity:.98;
+    transition:transform .5s ease;
+  }
+  .left-sticker{ left:8px; transform-origin:left center; }
+  .right-sticker{ right:8px; transform-origin:right center; }
+
+  /* Kağıt ve overlay */
+  .overlay{
+    position:fixed;
+    inset:0;
+    background: linear-gradient(180deg, rgba(250,235,255,0.25), rgba(235,255,250,0.18));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:30;
+    pointer-events:none;
+  }
+  .paper-wrap{
+    width:360px;
+    height:240px;
+    perspective:1000px;
+    pointer-events:auto;
+  }
+
+  .paper{
+    width:100%;
+    height:100%;
+    transform-style:preserve-3d;
+    transition:all .9s cubic-bezier(.22,.9,.26,1);
+    transform-origin:top center;
+    position:relative;
+  }
+
+  /* Kağıdın dış görünüşü */
+  .paper .cover{
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg, #fff, var(--paper));
+    border-radius:12px;
+    border: 2px solid rgba(220,180,230,0.6);
+    box-shadow: var(--shadow);
+    transform-origin: top center;
+    backface-visibility:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  /* İç yüz (kağıdın içi, açılınca görünen kısım) */
+  .paper .inside{
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg, var(--paper), #fff);
+    border-radius:12px;
+    border: 1px dashed rgba(230,200,240,0.5);
+    box-shadow: 0 8px 30px rgba(220,200,240,0.18) inset;
+    transform: translateZ(-1px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:26px 24px;
+    text-align:center;
+    opacity:0;
+  }
+
+  /* Kağıt açılma animasyonu */
+  .paper.open .cover {
+    animation: openCover .85s cubic-bezier(.22,.9,.26,1) forwards;
+  }
+  @keyframes openCover{
+    0%{ transform: rotateX(0deg) translateY(0); }
+    40%{ transform: rotateX(-110deg) translateY(-6px); }
+    70%{ transform: rotateX(-92deg) translateY(-2px); }
+    100%{ transform: rotateX(-100deg) translateY(0px); }
+  }
+
+  .paper.open .inside{
+    animation: revealInside .65s .18s ease forwards;
+  }
+  @keyframes revealInside{
+    0%{ opacity:0; transform: translateY(8px) scale(.98); }
+    100%{ opacity:1; transform: translateY(0) scale(1); }
+  }
+
+  /* Kağıtta küçük kalpler (yanlar) */
+  .heart{
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:linear-gradient(180deg,#ff9ac2,#ff5fa1);
+    transform: rotate(-45deg);
+    border-radius:4px;
+    box-shadow: 0 4px 10px rgba(255,110,170,0.18);
+  }
+  .heart:before, .heart:after{
+    content:"";
+    position:absolute;
+    width:18px; height:18px;
+    background:linear-gradient(180deg,#ff9ac2,#ff5fa1);
+    border-radius:50%;
+    top:-9px; left:0;
+  }
+  .heart:after{ left:9px; top:0; }
+
+  .heart.left{ left:14px; top:50%; transform: translateY(-50%) rotate(-45deg); }
+  .heart.right{ right:14px; top:50%; transform: translateY(-50%) rotate(-45deg); }
+
+  /* Yazı stili (kağıt üzerindeki tek metin) */
+  .love-text{
+    font-size:13px; /* küçük yazı */
+    font-weight:800; /* kalın */
+    color:#6a2360;
+    line-height:1.25;
+    letter-spacing:.3px;
+    word-break:break-word;
+    max-width:100%;
+  }
+
+  /* Açılma sonrası hafif çalkalama (shake) */
+  .paper.shake{
+    animation: smallShake .45s ease;
+  }
+  @keyframes smallShake{
+    0%{ transform: translateZ(0) rotateX(-100deg); }
+    20%{ transform: translateZ(0) rotateX(-100deg) translateX(-6px); }
+    40%{ transform: translateZ(0) rotateX(-100deg) translateX(6px); }
+    60%{ transform: translateZ(0) rotateX(-100deg) translateX(-3px); }
+    80%{ transform: translateZ(0) rotateX(-100deg) translateX(2px); }
+    100%{ transform: translateZ(0) rotateX(-100deg) translateX(0); }
+  }
+
+  /* Küçük dekoratif stickerlar */
+  .sticker{
+    position:absolute;
+    width:56px;
+    height:56px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    color:white;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    transform: rotate(-12deg);
+  }
+  .st1{ left:18px; top:18px; background: linear-gradient(180deg,#fff6fb,#ffd6f0); border:2px solid rgba(255,255,255,0.6); }
+  .st2{ right:22px; bottom:22px; background: linear-gradient(180deg,#effff6,#caffea); border:2px solid rgba(255,255,255,0.6); }
+
+  /* Responsive */
+  @media (max-width:420px){
+    .left-sticker, .right-sticker{ display:none; }
+    .paper-wrap{ width:320px; height:210px; }
+    .cute-btn{ --w:190px; height:64px; font-size:16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>for astie :3</header>
+
+<div class="sparkles" aria-hidden="true"></div>
+
+<!-- Yanlardaki pony tarzı illüstrasyonlar (stilize, sevimli atlar) -->
+<!-- Sol pony (SVG) -->
+<svg class="left-sticker" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#ff9ccf"/>
+      <stop offset="1" stop-color="#ffd6f0"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0" stop-color="#c6ffe8"/>
+      <stop offset="1" stop-color="#d5b3ff"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(10,10) scale(0.9)">
+    <ellipse cx="80" cy="120" rx="48" ry="26" fill="url(#g1)" opacity="0.98"/>
+    <path d="M30 120 q-5 -40 22 -60 q10 -8 34 -8 q30 2 44 22 q12 18 8 36 q-8 18 -40 26 q-34 10 -68 -16z" fill="url(#g2)"/>
+    <circle cx="58" cy="92" r="6" fill="#fff"/>
+    <circle cx="58" cy="92" r="3" fill="#3b1b3b"/>
+    <path d="M40 82 q16 -18 34 -16 q-10 -12 -22 -8 q-6 2 -12 12z" fill="#ffd6f0" opacity="0.8"/>
+    <!-- yıldız sticker -->
+    <polygon points="110,60 115,75 130,75 118,84 122,99 110,89 98,99 102,84 90,75 105,75" fill="#fff8" transform="scale(.6) translate(50,20)"/>
+  </g>
+</svg>
+
+<!-- Sağ pony (SVG) -->
+<svg class="right-sticker" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="h1" x1="0" x2="1">
+      <stop offset="0" stop-color="#bff2ff"/>
+      <stop offset="1" stop-color="#c6b6ff"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(10,10) scale(0.9)">
+    <ellipse cx="120" cy="122" rx="44" ry="22" fill="url(#h1)" opacity="0.98"/>
+    <path d="M160 122 q8 -36 -18 -56 q-12 -8 -36 -6 q-28 2 -38 20 q-10 20 -4 36 q10 18 44 22 q30 4 52 -16z" fill="#ffd6f0"/>
+    <circle cx="132" cy="96" r="6" fill="#fff"/>
+    <circle cx="132" cy="96" r="3" fill="#3b1b3b"/>
+    <path d="M148 86 q-16 -18 -34 -16 q10 -12 22 -8 q6 2 12 12z" fill="#c6ffe8" opacity="0.8"/>
+  </g>
+</svg>
+
+<!-- Sahne merkezi -->
+<div class="stage" role="main" aria-labelledby="mainLabel">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+    <button id="openBtn" class="cute-btn" aria-haspopup="dialog" aria-controls="paperDialog">
+      <div class="shine"></div>
+      open sweet paper
+    </button>
+
+    <div style="display:flex;gap:10px;align-items:center;justify-content:center;">
+      <div class="sticker st1">♡</div>
+      <div class="sticker st2">✦</div>
+    </div>
+  </div>
+</div>
+
+<!-- Kağıt overlay (başlangıçta görünmez) -->
+<div id="overlay" class="overlay" style="visibility:hidden;opacity:0;transition:opacity .28s ease, visibility .28s;">
+  <div class="paper-wrap" role="dialog" aria-modal="true" aria-labelledby="paperText">
+    <div id="paper" class="paper" aria-hidden="true">
+      <div class="cover" aria-hidden="true">
+        <!-- kapak üzerine küçük sticker -->
+        <svg width="120" height="80" viewBox="0 0 120 80" style="opacity:.95">
+          <rect x="6" y="6" width="108" height="68" rx="8" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.6)" />
+          <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" style="font-size:14px;font-weight:800;fill:#8e2c6b">♡</text>
+        </svg>
+      </div>
+      <div class="inside" id="paperInside" aria-hidden="true">
+        <div class="heart left" aria-hidden="true"></div>
+        <div class="heart right" aria-hidden="true"></div>
+        <div id="paperText" class="love-text" role="document" aria-label="message">
+          <!-- Buraya sadece istenen yazı gelecek -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tek dosyada çalışma mantığı
+  const btn = document.getElementById('openBtn');
+  const overlay = document.getElementById('overlay');
+  const paper = document.getElementById('paper');
+  const paperText = document.getElementById('paperText');
+
+  // Tam olarak kullanıcının istediği metin (kesin, hiçbir ekleme olmadan)
+  const MESSAGE = "you're the most cute person I've ever met, I love you, astie <3";
+
+  let opened = false;
+  btn.addEventListener('click', () => {
+    if (!opened) {
+      // göster
+      overlay.style.visibility = 'visible';
+      overlay.style.opacity = '1';
+      // içerikleri hazırla
+      paperText.textContent = MESSAGE; // sadece bu yazı
+      // küçük gecikmeli animasyon
+      setTimeout(()=> {
+        paper.classList.add('open');
+        paper.setAttribute('aria-hidden','false');
+        // hafif çalkalama bir kez uygulansın (küçük)
+        setTimeout(()=> {
+          paper.classList.add('shake');
+          setTimeout(()=> paper.classList.remove('shake'), 480);
+        }, 680);
+      }, 40);
+      opened = true;
+      btn.setAttribute('aria-expanded','true');
+      // tıklama sonrası butonu hafifçe sabitle (opsiyonel)
+      btn.blur();
+      // overlay üzerine tıklayarak kapatmayı engelle (isteğe bağlı)
+      // overlay.addEventListener('click', closePaper); // kapatmayı istemediğin için yorumda bırakıyorum
+    } else {
+      // zaten açıldıysa tekrar kapatılmasın; ama kapatmak istersen buraya logic ekleyebilirsin
+    }
+  });
+
+  // Erişilebilirlik: Esc ile kapatabilme (isteğe bağlı, ama kapatmaya izin vermezsek devre dışı bırak)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && opened) {
+      // Kapat
+      paper.classList.remove('open');
+      overlay.style.opacity = '0';
+      overlay.style.visibility = 'hidden';
+      paper.setAttribute('aria-hidden','true');
+      paperText.textContent = ""; // metni kaldır
+      opened = false;
+      btn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  // Sayfa yüklendiğinde küçük animasyonlu giriş efektleri
+  window.addEventListener('load', () => {
+    // butona küçük 'pop' efekti
+    btn.animate([{ transform:'scale(.95)' }, { transform:'scale(1.02)' }, { transform:'scale(1)' }], { duration:800, easing:'ease-out' });
+  });
+
+  // Touch/drag etkileşimlerinde stickerları hafifçe sallama
+  const leftSticker = document.querySelector('.left-sticker');
+  const rightSticker = document.querySelector('.right-sticker');
+  document.addEventListener('mousemove', (e) => {
+    const cx = window.innerWidth/2;
+    const diff = (e.clientX - cx) / cx;
+    if (leftSticker) leftSticker.style.transform = `translateY(-50%) rotate(${diff * -6}deg)`;
+    if (rightSticker) rightSticker.style.transform = `translateY(-50%) rotate(${diff * 6}deg)`;
+  });
+</script>
+
+</body>
+        </html>
