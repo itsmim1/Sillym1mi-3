@@ -1,274 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>for astie :3</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Recursive:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>For Astie 💖</title>
   <style>
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
+      padding: 0;
+      background: radial-gradient(ellipse at 60% 60%, #ffe1f7 70%, #fff 100%);
+      overflow:hidden;
+    }
+    body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #eec6f9 0%, #b6c3fa 100%);
-      font-family: 'Recursive', cursive;
-      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      --pink: #FFA5EC;
-      --blue: #80CCF2;
-      --yellow: #FFF8AB;
-      --mint: #CFFFD6;
-      --lilac: #E1BFFF;
-      --paper:#fffbea;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      background-attachment: fixed;
     }
-
-    /* Cute sparkle background, floating */
-    .sparkle {
+    /* Floating hearts */
+    .heart-float {
+      position: fixed;
+      width: 34px; height: 34px;
+      left: 50vw;
+      top: 100vh;
+      font-size: 2em;
       pointer-events: none;
-      position: absolute;
-      animation: floating 5s linear infinite;
-      opacity: 0.8;
-      width: 36px; height: 36px;
-      background: url('https://pngimg.com/d/star_PNG41511.png') center/contain no-repeat;
-      z-index: 2;
-    }
-    @keyframes floating {
-      0% { transform: translateY(0);}
-      50% { transform: translateY(-16px);}
-      100% { transform: translateY(0);}
-    }
-
-    header {
-      font-family: 'Pacifico', cursive;
-      font-size: 3.2rem;
-      color: #fff;
-      text-shadow: 0 2px 10px #eec6f9, 0 6px 12px #b6c3fa;
-      text-align: center;
-      margin-top: 38px;
-      letter-spacing: 0.05em;
-      position: relative;
+      opacity: 0.75;
+      filter: blur(0.5px);
       z-index: 5;
+      animation: floatHearts 7s linear forwards;
+    }
+    @keyframes floatHearts {
+      from {transform: translateY(0);}
+      to   {transform: translateY(-110vh) scale(1.2);}
     }
 
-    /* Y2K CuteCore Button */
-    .y2k-btn {
-      margin: 64px auto 32px auto;
-      display: block;
-      background: linear-gradient(90deg, var(--pink) 30%, var(--mint) 70%, var(--yellow) 100%);
-      padding: 18px 56px;
-      font-size: 1.9rem;
-      font-family: 'Pacifico', cursive;
-      border-radius: 24px;
-      border: 4px double var(--lilac);
-      box-shadow: 0 0 30px 8px #ffdfff, 0 4px 0 0 #e1bfff;
-      cursor: pointer;
-      color: #a530b7;
-      letter-spacing: 2px;
-      transition: transform 0.14s, background 0.3s;
-      position: relative;
-      outline: none;
-      z-index: 3;
-    }
-    .y2k-btn:active {
-      transform: scale(0.97) rotate(-1deg);
-      background: linear-gradient(90deg, var(--yellow) 0%, var(--pink) 90%);
-    }
-    .y2k-btn:before {
-      content: "★";
-      font-size: 1.4em;
-      position: absolute;
-      left: 20px; 
-      top: 6px;
-      color: #e1bfff;
-      text-shadow: 1px 1px white;
-      animation: spinStar 3s linear infinite;
-    }
-    @keyframes spinStar {
-      0% { transform: rotate(0);}
-      100% { transform: rotate(360deg);}
-    }
-    .y2k-btn:after {
-      content: "✦";
-      font-size: 1.3em;
-      position: absolute;
-      right: 22px;
-      bottom: 8px;
-      color: #80ccf2;
-      text-shadow: 1px 1px white;
-      animation: wink 2.5s linear infinite;
-    }
-    @keyframes wink {
-      0%,100%{ opacity: 1;}
-      30%,70% { opacity: 0.66;}
-      50% { opacity: 0.1;}
-    }
-
-    /* Cute Borders top and bottom */
-    .rainbow-bar {
-      height: 14px;
-      width: 100vw;
-      background: repeating-linear-gradient(
-        90deg,
-        #ffa5ec 0, #ffa5ec 40px,
-        #fff8ab 40px, #fff8ab 80px,
-        #b6c3fa 80px, #b6c3fa 120px,
-        #80ccf2 120px, #80ccf2 160px
-      );
-      border-bottom: 3px double #b6c3fa;
-      border-top: 3px double #eec6f9;
-      box-shadow: 0 2px 8px #fff6;
+    /* Opening overlay */
+    #overlay {
       position: fixed;
-      z-index: 10;
+      left:0;top:0;right:0;bottom:0;
+      background: linear-gradient(117deg,#fec6e7 0%,#fbe9ff 100%);
+      z-index:99;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      transition: opacity 1s;
+      animation: overlayFade 2.4s 1.2s forwards;
     }
-    .bar-top { top: 0; left: 0;}
-    .bar-bottom { bottom: 0; left: 0;}
+    @keyframes overlayFade {
+      0% { opacity:1;}
+      85%{ opacity:1;}
+      100%{opacity:0; pointer-events:none;}
+    }
+    #overlay .opening-heart {
+      font-size: 5vw;
+      animation: openingHeartPop 1.6s cubic-bezier(.3,1.6,.5,1.07);
+      color:#d72660;
+      text-shadow:0px 0px 16px #fff,0 0 20px #feb9e8;
+    }
+    @keyframes openingHeartPop {
+      0% { opacity:.15; transform: scale(0.15);}
+      80%{ opacity:1;   transform: scale(1.12);}
+      100%{opacity:1;   transform: scale(1);}
+    }
+    #overlay small {
+      font-size:22px;
+      margin-top:24px;
+      color: #de4684;
+      letter-spacing:2px;
+      text-shadow: 0px 1px 8px #fff;
+      opacity: 0.7;
+    }
 
-    /* Kawaii tiny hearts and shapes */
-    .decor {
-      position: absolute;
-      font-size: 2rem;
-      opacity: 0.6;
+    /* Main content */
+    .main-content {
+      opacity:0;
+      transition: opacity 1s;
+      transition-delay: 2.2s;
+      display: flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      position:relative;
       z-index: 2;
-      user-select: none;
+      min-height:100vh;
     }
 
-    /* Side pony images */
-    .pony {
-      position: fixed;
-      top: 110px;
-      width: 88px;
-      z-index: 8;
-      filter: drop-shadow(4px 9px 19px #b6c3fa66);
-      pointer-events: none;
-      transition: transform 0.5s;
-      border-radius: 34px;
-      outline: 5px dotted #fff8ab66;
-      outline-offset: 2px;
-      background: linear-gradient(135deg, #fff8abd9 80%, #80ccf284 100%);
-      box-shadow: 0 0 36px #fffdfc77;
-    }
-    .pony.left { left: 22px; }
-    .pony.right { right: 22px; transform: scaleX(-1);}
-    .pony:hover { transform: scale(1.18); }
-
-    /* Cute notepaper effect */
-    .note-paper {
-      display: none;
-      position: fixed;
-      left: 50%; top: 50%;
-      transform: translate(-50%, -51%) scale(0.97);
-      min-width: 340px;
-      padding: 34px 34px 44px 34px;
-      background: 
-        repeating-linear-gradient(180deg,#fffbeaff 0 6px,#fffefb00 6px 36px),
-        linear-gradient(90deg, #fbb1f9bb 0%, #e1bfffbb 100%);
-      border: 6px dashed #b6c3fa;
-      border-radius: 32px 44px 38px 34px / 36px 34px 42px 36px;
-      box-shadow: 0 16px 59px #f9caf85d, 0 0 5px #ffdfff;
-      text-align: center;
-      font-size: 1.75rem;
-      font-family: 'Pacifico',cursive;
-      color: #b73672;
-      letter-spacing: 1.4px;
-      z-index: 50;
-      animation: paperIn 1.1s cubic-bezier(.68,-0.6,.32,1.6) forwards;
-      word-break: break-word;
-      overflow: visible;
-    }
-    @keyframes paperIn {
-      0% { opacity: 0; transform: translate(-50%,-61%) scale(.8) rotateZ(-6deg);}
-      60%{ opacity: 1; transform: translate(-50%,-52%) scale(1.07) rotateZ(-1deg);}
-      85% {transform: translate(-50%,-50%) scale(1.13) rotateZ(1deg);}
-      100% { opacity: 1; transform: translate(-50%,-51%) scale(0.97);}
+    body.loaded .main-content {
+      opacity:1;
     }
 
-    /* Little sticky stars on the notepaper */
-    .paper-stickers {
+    /* Button with hearts */
+    .btn-wrap {
+      position:relative;
+      padding: 0;
+      margin:48px 0;
+      display:inline-block;
+    }
+    #love-btn {
+      padding: 27px 65px;
+      background: linear-gradient(90deg, #ff2e6d 0%, #ffbcd2 100%);
+      color: #fff;
+      border:none;
+      border-radius: 999px;
+      box-shadow: 0 4px 34px 0 #ff9dcc66, 0 0px 48px 2px #ffeefd;
+      font-size:2.25em;
+      letter-spacing:3px;
+      font-family: inherit;
+      cursor: pointer;
+      position:relative;
+      z-index:2;
+      transition: background 0.22s, transform 0.15s, filter 0.15s;
+      outline:none;
+      overflow:hidden;
+    }
+    #love-btn:hover {
+      background: linear-gradient(90deg, #fc327a 0%, #ffd0f0 100%);
+      transform: scale(1.05) rotate(-2deg);
+      filter:brightness(1.08) drop-shadow(0 0 12px #fff4f8);
+    }
+    /* Heart decorations on button */
+    .btn-heart {
       position: absolute;
-      left: 14px; top: -22px;
-      display: flex; gap: 8px;
+      font-size: 1.3em;
+      pointer-events: none;
+      text-shadow:0 0 10px #fff4,0 0 16px #fff;
+      animation: btnHeartWobble 3s infinite;
+      opacity:.95;
+      z-index:3;
     }
-    .paper-stickers span {
-      font-size: 1.7rem;
-      filter: drop-shadow(0 1px 2px #fad2ff);
+    .btn-heart.left {
+      left: -24px; top: 6px;
+      color:#ff8fb2;
+      animation-delay:0.3s;
     }
-    .note-heart {
-      position:absolute; right:18px; bottom:-22px; font-size:2rem; opacity:.88;
-      color:#ffa5ec;
-      text-shadow: 0 1px 3px #fff,0 1px 16px #e1bfff9c;
+    .btn-heart.right {
+      right: -24px; top: 6px;
+      color:#ed2867;
+      animation-delay:1.2s;
+    }
+    .btn-heart.top {
+      left:50%;transform:translateX(-50%);
+      top:-30px;
+      color:#ff8fb2;
+      animation-delay:2s;
+    }
+    @keyframes btnHeartWobble {
+      0%,100%{transform:scale(1);}
+      25%{transform:scale(1.3) rotate(8deg);}
+      60%{transform:scale(1.01) rotate(-3deg);}
     }
 
-    /* Mobile adjust */
-    @media (max-width: 600px) {
-      header {font-size:2.2rem;}
-      .pony{width:56px;}
-      .note-paper {min-width:160px; padding:14px;}
+    /* Tear effect & revealed message */
+    .tear-reveal {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      max-width:97vw;
+      margin-top:32px;
+      min-height:74px;
+      opacity:0;
+      transition: opacity 1s;
+      position:relative;
+      z-index:4;
+    }
+    body.torn .tear-reveal {
+      opacity:1;
+      animation: revealAppear 2.1s cubic-bezier(.11,1.14,.69,1.01);
+    }
+    @keyframes revealAppear {
+      from{filter:blur(20px) brightness(1.2); opacity:0;}
+      70%{filter:blur(1.5px);}
+      to  {filter:blur(0) brightness(1.01); opacity:1;}
+    }
+    .tear-left, .tear-right {
+      height:74px; width:54px;
+      background: linear-gradient(105deg,#ffd0e3 77%,#f2cff2 100%);
+      border-radius: 8px;
+      box-shadow:
+        0 9px 24px 2px #fcbadadb,
+        0 0 0px 0px #ff64a879;
+      position:relative;
+      z-index:3;
+      opacity:.96;
+      transform:scaleY(0.2);
+      animation: tearOpen 1.1s 0.12s cubic-bezier(.96,.25,.38,1.09) forwards;
+    }
+    .tear-left {
+      margin-right: -14px;
+      clip-path: polygon(100% 0%, 0 22%, 29% 49%, 0 74%, 100% 100%);
+      border-top-left-radius:22px;
+      border-bottom-left-radius:12px;
+    }
+    .tear-right {
+      margin-left: -14px;
+      clip-path: polygon(0 0%, 100% 20%, 78% 52%, 100% 74%, 0 100%);
+      border-top-right-radius:22px;
+      border-bottom-right-radius:12px;
+    }
+    @keyframes tearOpen {
+      0%  { transform: scaleY(0.14) scaleX(0.7);}
+      90% { transform: scaleY(1.1) scaleX(1.01);}
+      100%{ transform: scaleY(1) scaleX(1);}
+    }
+    .reveal-msg {
+      padding:14px 32px 14px 32px;
+      background:
+        linear-gradient(92deg,#fff8fe 64%,#ffe4f8 100%);
+      border-radius:17px;
+      min-width:180px;
+      min-height: 38px;
+      font-size:1.6em;
+      letter-spacing:1.2px;
+      box-shadow: 0 3px 20px 0 #ffaee6ad;
+      color:#ff2c7e;
+      font-family:'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      font-weight: 600;
+      text-align:center;
+      position:relative;
+      overflow:visible;
+      z-index:4;
+      animation: msgGlow 1.6s 0.4s cubic-bezier(.15,1.2,.59,1) forwards;
+    }
+    @keyframes msgGlow {
+      from{ filter: blur(6px) brightness(1.35);}
+      80% { filter: blur(1px) brightness(1);}
+      to  { filter: blur(0) brightness(1);}
+    }
+    .msg-heart {
+      font-size:1.22em;filter:drop-shadow(0 1px 6px #feb6d7cc);
+      vertical-align:middle; margin-left:4px;
+      animation: heartJump 2.7s infinite;
+    }
+    @keyframes heartJump {
+      0%,100%{transform:translateY(1.5px);}
+      50%{transform:translateY(-7px) scale(1.2);}
+    }
+
+    /* Star shimmer details */
+    .shimmer {
+      position: absolute;
+      width: 18px; height: 18px;
+      background: radial-gradient(circle,#fff6, #fff0 50%);
+      border-radius: 50%;
+      pointer-events:none;
+      mix-blend-mode: lighten;
+      opacity:0.85;
+      animation: shimmerAnim 2.7s infinite;
+    }
+    .shimmer.sm1 { top: -20px; left:28%; animation-delay:.2s;}
+    .shimmer.sm2 { top: 38px; right:25%;animation-delay:.74s;}
+    .shimmer.sm3 { top: 52px; left:60%; animation-delay:1.3s;}
+    @keyframes shimmerAnim {
+      0%,100%{opacity:.72; filter:blur(0px);transform:scale(1);}
+      30%{opacity:1;filter:blur(2px);transform:scale(1.2);}
+      80%{opacity:.32;}
+    }
+
+    /* extra cute details */
+    body.torn {
+      background: radial-gradient(ellipse at 62% 64%, #fff0da 40%, #fde3fa 95%);
+      transition: background 1.5s;
+    }
+
+    /* Responsive */
+    @media (max-width:500px){
+      #love-btn { font-size:1em; padding:18px 19vw;}
+      .reveal-msg{font-size:1.03em;padding:9px 7vw;}
+      .tear-left, .tear-right { height:38px; width:24px; }
     }
   </style>
 </head>
 <body>
-  <div class="rainbow-bar bar-top"></div>
-  <div class="rainbow-bar bar-bottom"></div>
-  <header>for astie :3</header>
-
-  <!-- My Little Pony PNGs left/right (free to replace with any image from MLP, copyright for personal/fan art purposes only) -->
-  <img class="pony left" src="https://static.wikia.nocookie.net/mlp/images/8/89/Fluttershy-id.png" alt="My Little Pony Left"/>
-  <img class="pony right" src="https://static.wikia.nocookie.net/mlp/images/c/c5/PinkiePie-id.png" alt="My Little Pony Right"/>
-
-  <!-- Kawaii floating decorations -->
-  <div class="decor" style="top:150px;left:15vw; color:#ffa5ec">♡</div>
-  <div class="decor" style="top:210px;left:80vw; color:#e1bfff;">✩</div>
-  <div class="decor" style="top:60vh;left:78vw; color:#80ccf2">★</div>
-  <div class="decor" style="top:60vh;left:11vw; color:#fff8ab">✦</div>
-  <div class="decor" style="top:42vh;left:40vw; color:#b6c3fa; transform: rotate(-18deg);">❀</div>
-  <div class="decor" style="top:70vh;left:37vw;font-size:1.6rem;color:#ffa5ecaf;">♥</div>
-  <div class="decor" style="top:23vh;left:61vw;font-size:1.7rem;color:#80ccf2;">♥</div>
-  <div class="decor" style="top:17vh;left:31vw;font-size:3rem;color:#e1bfffc3;">✧</div>
-  <div class="decor" style="top:72vh;left:71vw;font-size:2.4rem;">✦</div>
-  <div class="decor" style="top:30vh;left:94vw;font-size:2.8rem;color:#fff8ab54;">❀</div>
-  <div class="decor" style="top:84vh;left:7vw;font-size:2.5rem;color:#b6c3fa;">✦</div>
-
-  <!-- Random sparkles -->
-  <div class="sparkle" style="top:8%;left:23vw;animation-duration:5.2s;"/>
-  <div class="sparkle" style="top:38%;left:74vw;animation-duration:7.3s;"/>
-  <div class="sparkle" style="top:24%;left:49vw;animation-duration:4.6s;"/>
-  <div class="sparkle" style="top:66%;left:12vw;animation-duration:5.9s;"/>
-  <div class="sparkle" style="top:74%;left:77vw;animation-duration:7.1s;"/>
-
-  <!-- Y2K Style Button -->
-  <button class="y2k-btn" id="cute-btn">click me :3</button>
-
-  <!-- Notepaper Modal -->
-  <div class="note-paper" id="paper-note" aria-modal="true">
-    <div class="paper-stickers">
-      <span style="color:#ff9abf">✦</span>
-      <span style="color:#80ccf2">✧</span>
-      <span style="color:#fff8ab">★</span>
-    </div>
-    <span style="display:block;margin-bottom:14px;font-size:1.3rem;color:#b8b;font-family:'Recursive'">psst... look! (⋈◍＞◡＜◍)。✧♡</span>
-    you're the most cute person I've ever met, I love you, astie &lt;3
-    <span class="note-heart">♡</span>
+  <!-- Opening overlay -->
+  <div id="overlay">
+    <div class="opening-heart">💕</div>
+    <small>welcome, sweet astie!</small>
   </div>
-
+  <!-- Main content -->
+  <div class="main-content">
+    <div class="btn-wrap">
+      <span class="btn-heart left">💕</span>
+      <span class="btn-heart right">💖</span>
+      <span class="btn-heart top">💗</span>
+      <button id="love-btn">click me! &gt;,&lt;</button>
+    </div>
+    <div class="tear-reveal" style="margin-bottom:24px;">
+      <div class="tear-left"></div>
+      <div class="reveal-msg">
+        you're the most cute person I've ever met,<br>
+        I love you astie<span class="msg-heart">💕</span>&lt;3
+        <div class="shimmer sm1"></div>
+        <div class="shimmer sm2"></div>
+        <div class="shimmer sm3"></div>
+      </div>
+      <div class="tear-right"></div>
+    </div>
+  </div>
   <script>
-    // Save button and notepaper
-    const btn = document.getElementById('cute-btn');
-    const note = document.getElementById('paper-note');
+    // Floating hearts
+    function randomHeart(){
+      const hearts = ["💖","💕","💗","💓","💞"];
+      const el = document.createElement('span');
+      el.className = "heart-float";
+      el.textContent = hearts[(Math.random()*hearts.length)|0];
+      el.style.left = (8 + Math.random()*84) + "vw";
+      el.style.fontSize = (1 + Math.random()*2.5) + "em";
+      el.style.opacity = (0.45 + Math.random()*0.6).toString();
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(), 7200);
+    }
+    setInterval(randomHeart, 440);
 
-    btn.addEventListener('click', function() {
-      note.style.display = 'block';
-      note.focus();
+    // Show main after overlay
+    setTimeout(() => {
+      document.body.classList.add('loaded');
+    }, 1725);
+
+    // Show/hide reveal section logic
+    const btn = document.getElementById('love-btn');
+    const tearReveal = document.querySelector('.tear-reveal');
+    tearReveal.style.display = "none";
+
+    btn.onclick = function(){
       btn.disabled = true;
-      setTimeout(()=>btn.style.opacity="0.6",300); // partial fade after click
+      // Button "tears"
+      btn.style.transition = "transform 1.07s cubic-bezier(.67,0,0.40,1.3)";
+      btn.style.transform = "scaleX(0.86) scaleY(0.97) skewX(-7deg) translateY(60px)";
+      btn.style.opacity = "0.01";
+      setTimeout(()=>{
+        btn.style.display = "none";
+        tearReveal.style.display = "flex";
+        document.body.classList.add('torn');
+      }, 700);
+    };
+
+    // Hide reveal screen initially
+    document.body.classList.remove('torn');
+    tearReveal.style.opacity = 0;
+    tearReveal.style.display = "none";
+    setTimeout(()=>{
+      tearReveal.style.opacity=0;
+      tearReveal.style.display="none";
+    },10);
+
+    // When tearing, show reveal section smoothly
+    btn.addEventListener('click', () => {
+      setTimeout(() => {
+        tearReveal.style.opacity = 1;
+        tearReveal.style.display = "flex";
+      }, 899);
     });
 
-    // Escape to dismiss notepaper (if needed)
-    document.addEventListener('keydown', function(e) {
-      if (note.style.display === 'block' && (e.key === 'Escape'||e.key==='Enter')) {
-        note.style.display = 'none';
-        btn.disabled = false;
-        btn.style.opacity="1";
-      }
-    });
+    // Remove overlay
+    setTimeout(()=> {
+      document.getElementById('overlay').style.pointerEvents="none";
+      document.getElementById('overlay').style.opacity=0;
+    }, 2700);
+
   </script>
 </body>
 </html>
