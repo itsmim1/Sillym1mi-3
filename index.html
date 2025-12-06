@@ -7,71 +7,66 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Frutiger Aero arka plan -->
-  <div class="frutiger-bg"></div>
-  <!-- %55 şeffaf ortak ana kutu -->
-  <div class="main-container">
+  <div class="background-aero"></div>
+  <div class="main-box">
     <div class="profile-row">
-      <!-- Sweetiebelle19: sol ve büyük profil -->
-      <div class="profile-card main-profile">
-        <button class="profile-btn" id="aboutBtn">
-          <img class="avatar main-avatar" src="https://static.wikia.nocookie.net/mlp/images/5/57/Sweetie_Belle_ID_S1E4.png" alt="Sweetiebelle19">
-          <span class="profile-username">@sweetiebelle19</span>
+      <!-- Profil (sol: about me) -->
+      <div class="profile-card main">
+        <button class="aero-btn" id="aboutBtn">
+          <img class="pfp-large" src="https://static.wikia.nocookie.net/mlp/images/5/57/Sweetie_Belle_ID_S1E4.png" alt="Sweetiebelle19 Avatar">
+          <span>@sweetiebelle19</span>
         </button>
       </div>
-      <!-- Diğer profil kutuları güncel linklerle -->
+      <!-- Friends -->
       <div class="profile-card">
-        <a class="profile-btn friend-btn" href="https://instagram.com/m1miiqz.x1" target="_blank">
-          <img class="avatar" src="https://pbs.twimg.com/profile_images/1748080247303987200/dwQdUZGe_400x400.jpg" alt="m1miiqz.x1">
-          <span class="profile-username">@m1miiqz.x1</span>
-        </a>
+        <button class="aero-btn friend-btn">
+          <img class="pfp" src="https://pbs.twimg.com/profile_images/1748080247303987200/dwQdUZGe_400x400.jpg" alt="m1miiqz.x1"/>
+          <span>@m1miiqz.x1</span>
+        </button>
       </div>
       <div class="profile-card">
-        <a class="profile-btn friend-btn" href="https://instagram.com/rari_aso" target="_blank">
-          <img class="avatar" src="https://static.wikia.nocookie.net/mlp/images/6/6b/Rarity_ID_S2E15.png" alt="rari_aso">
-          <span class="profile-username">@rari_aso</span>
-        </a>
+        <button class="aero-btn friend-btn">
+          <img class="pfp" src="https://static.wikia.nocookie.net/mlp/images/6/6b/Rarity_ID_S2E15.png" alt="rari_aso"/>
+          <span>@rari_aso</span>
+        </button>
       </div>
       <div class="profile-card">
-        <a class="profile-btn friend-btn" href="https://instagram.com/rainbow._.dashie" target="_blank">
-          <img class="avatar" src="https://static.wikia.nocookie.net/mlp/images/8/80/Rainbow_Dash_ID_S1E1.png" alt="rainbow._.dashie">
-          <span class="profile-username">@rainbow._.dashie</span>
-        </a>
+        <button class="aero-btn friend-btn">
+          <img class="pfp" src="https://static.wikia.nocookie.net/mlp/images/8/80/Rainbow_Dash_ID_S1E1.png" alt="rainbow._.dashie"/>
+          <span>@rainbow._.dashie</span>
+        </button>
       </div>
     </div>
-    <!-- Alt butonlar Frutiger Aero temada -->
-    <div class="menu-bar">
-      <button class="menu-btn">Friends</button>
-      <button class="menu-btn">Profile</button>
+
+    <!-- Alt butonlar -->
+    <div class="action-row">
+      <button class="frutiger-action-btn">FRIENDS</button>
+      <button class="frutiger-action-btn">PROFILE</button>
     </div>
-    <!-- Hakkımda Pop-up -->
-    <div class="about-popup" id="aboutPopup">
-      <button class="close-btn" id="closePopup">&times;</button>
+
+    <!-- Hakkımda (popup) -->
+    <div class="about-note" id="aboutNote">
+      <button class="close-btn" id="closeNote">&times;</button>
       <div class="heart-row">
-        <span class="heart">💖</span>
-        <span class="heart">💖</span>
-        <span class="heart">💖</span>
+        <span class="heart">💖</span> <span class="heart">💖</span> <span class="heart">💖</span>
       </div>
-      <div class="about-text">
+      <div class="not-content">
         Heeyy I'm Astie. I'm 19 years old.<br>
         My hobby is reading and I love MLP especially Sweetie Belle ^^
       </div>
-      <div class="about-footer">
+      <div class="not-footer">
         If you're interested.. this is my story :3<br>
-        <a href="https://www.fimfiction.net/story/576798/enchanting-stories" target="_blank">
-          https://www.fimfiction.net/story/576798/enchanting-stories
-        </a>
+        <a href="https://www.fimfiction.net/story/576798/enchanting-stories" target="_blank">Enchanting Stories</a>
       </div>
       <div class="heart-row">
-        <span class="heart">💖</span>
-        <span class="heart">💖</span>
-        <span class="heart">💖</span>
+        <span class="heart">💖</span> <span class="heart">💖</span> <span class="heart">💖</span>
       </div>
     </div>
+
     <!-- Sabit alt mesaj kutusu -->
     <div class="msg-bar">
       <input class="msg-input" type="text" placeholder="Send a cute message...">
-      <button class="send-btn">Send</button>
+      <button class="send-msg-btn">Send</button>
     </div>
   </div>
   <script src="script.js"></script>
