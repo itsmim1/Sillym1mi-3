@@ -1,28 +1,31 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Hakkımda popup
+  // About popup toggle
   const aboutBtn = document.getElementById("aboutBtn");
-  const aboutPopup = document.getElementById("aboutPopup");
-  const closePopup = document.getElementById("closePopup");
-  aboutBtn.addEventListener('click', () => {
-    aboutPopup.style.display = "block";
+  const aboutNote = document.getElementById("aboutNote");
+  const closeNote = document.getElementById("closeNote");
+  
+  aboutBtn.addEventListener("click", function() {
+    aboutNote.style.display = "block";
     aboutBtn.classList.add('active');
   });
-  closePopup.addEventListener('click', () => {
-    aboutPopup.style.display = "none";
+  closeNote.addEventListener("click", function() {
+    aboutNote.style.display = "none";
     aboutBtn.classList.remove('active');
   });
-  // Sabit mesaj kutusu
-  document.querySelector('.send-btn').addEventListener('click', function(e) {
+
+  // Mesaj gönder
+  document.querySelector('.send-msg-btn').addEventListener('click', function(e) {
     const input = document.querySelector('.msg-input');
     if (input.value.trim()) {
-      alert('Mesajınız gönderildi: ' + input.value.trim());
+      alert('Mesajın gönderildi: ' + input.value.trim());
       input.value = '';
     }
   });
+
+  // Enter ile mesaj gönderme
   document.querySelector('.msg-input').addEventListener('keypress', function(e) {
     if (e.key === "Enter") {
-      document.querySelector('.send-btn').click();
+      document.querySelector('.send-msg-btn').click();
     }
   });
 });
