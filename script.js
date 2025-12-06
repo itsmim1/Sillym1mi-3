@@ -1,31 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Hakkında popup
+  // Popup: About
   const aboutBtn = document.getElementById("aboutBtn");
-  const aboutNote = document.getElementById("aboutNote");
-  const closeNote = document.getElementById("closeNote");
-  
-  aboutBtn.addEventListener("click", function() {
-    aboutNote.style.display = "block";
+  const aboutPopup = document.getElementById("aboutPopup");
+  const closePopup = document.getElementById("closePopup");
+  aboutBtn.addEventListener('click', () => {
+    aboutPopup.style.display = "block";
     aboutBtn.classList.add('active');
   });
-  closeNote.addEventListener("click", function() {
-    aboutNote.style.display = "none";
+  closePopup.addEventListener('click', () => {
+    aboutPopup.style.display = "none";
     aboutBtn.classList.remove('active');
   });
 
-  // Mesaj gönder
-  document.querySelector('.send-msg-btn').addEventListener('click', function(e) {
+  // Alt kutudan mesaj gönderme
+  document.querySelector('.send-btn').addEventListener('click', function(e) {
     const input = document.querySelector('.msg-input');
     if (input.value.trim()) {
-      alert('Mesajın gönderildi: ' + input.value.trim());
+      alert('Mesajınız gönderildi: ' + input.value.trim());
       input.value = '';
     }
   });
-
-  // Enter ile mesaj gönderme
   document.querySelector('.msg-input').addEventListener('keypress', function(e) {
     if (e.key === "Enter") {
-      document.querySelector('.send-msg-btn').click();
+      document.querySelector('.send-btn').click();
     }
   });
 });
