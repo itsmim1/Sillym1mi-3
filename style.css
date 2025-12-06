@@ -1,0 +1,11 @@
+/* style.css */
+
+body {
+    /* İstenen URL buraya yapıştırıldı: */
+    background-image: url('http://googleusercontent.com/image_collection/image_retrieval/9930861488427756346_0'); 
+    
+    background-size: cover;          /* Ekranı kapla */
+    background-repeat: no-repeat;    /* Tekrarlama */
+    background-attachment: fixed;    /* Sabitle */
+    background-position: center center; /* Ortala */
+}
