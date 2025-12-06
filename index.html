@@ -2,73 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Astie - Cutecore & Frutiger Aero</title>
+  <title>Astie's Frutiger Aero Cutecore</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Cutecore/cool bir font ve stil -->
   <link href="https://fonts.googleapis.com/css?family=Quicksand:700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Frutiger Aero bulut detayı -->
-  <div class="frutiger-detail-left"></div>
-  <div class="frutiger-detail-right"></div>
-
-  <div class="top-bar">
-    <button class="cute-btn" id="aboutBtn">About Me</button>
-    <button class="cute-btn">Friends</button>
-    <button class="cute-btn">Profile</button>
+  <!-- Frutiger Aero multi-layered background: gradient, bgimg, lens flare cloud, bubbles -->
+  <div class="frutiger-bg">
+    <div class="aero-gradient"></div>
+    <img class="flair" src="https://png.pngtree.com/png-clipart/20230412/original/pngtree-flare-light-effect-element-png-image_9036717.png" alt="">
+    <img class="cloud cloud1" src="https://static.vecteezy.com/system/resources/previews/023/673/687/original/cloud-transparent-free-png.png" alt="">
+    <img class="cloud cloud2" src="https://static.vecteezy.com/system/resources/previews/023/673/687/original/cloud-transparent-free-png.png" alt="">
+    <img class="bubble bubble1" src="https://pngimg.com/d/bubble_PNG61.png" alt="">
+    <img class="bubble bubble2" src="https://pngimg.com/d/bubble_PNG44.png" alt="">
+    <img class="bubble bubble3" src="https://pngimg.com/d/bubble_PNG12.png" alt="">
   </div>
-
-  <main>
-    <div class="center-user">
-      <div class="profile-avatar">
-        <!-- Instagram profilinden avatar -->
-        <img src="https://instagram.flhr1-1.fna.fbcdn.net/v/t51.2885-19/373923181_2362603350605973_2820190515320208717_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.flhr1-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=UaObgRku6K0AX-2A9GH&edm=ABfd0MgBAAAA&ccb=7-5&oh=00_AfCmjINQpAkYO_98P2FRnvE7Qgq_yQehP1wT28hvX4rsFg&oe=65815516&_nc_sid=1f6e71" alt="Sweetiebelle19 IG" />
+  <!-- %55 şeffaf cam-frosted kutu -->
+  <div class="main-container glass">
+    <div class="profile-row">
+      <!-- Sweetiebelle19: sol büyük, cam efekti kutu, fringe emoji -->
+      <div class="profile-card main-profile glass" title="Sweetiebelle19">
+        <button class="profile-btn" id="aboutBtn">
+          <img class="avatar main-avatar aero-border" src="https://static.wikia.nocookie.net/mlp/images/5/57/Sweetie_Belle_ID_S1E4.png" alt="Sweetiebelle19">
+          <span class="profile-username">💜 @sweetiebelle19 💜</span>
+        </button>
+        <div class="profile-tag">MLP Queen 💖</div>
+        <img src="https://www.emoji.co.uk/files/apple-emojis/animals-nature-apple/2863-unicorn-apple.png" class="sticker sticker1" alt="unicorn">
       </div>
-      <div class="profile-main">
-        <a href="https://instagram.com/sweetiebelle19" target="_blank" class="profile-link">
-          <img src="https://instagram.flhr1-1.fna.fbcdn.net/v/t51.2885-19/373923181_2362603350605973_2820190515320208717_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.flhr1-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=UaObgRku6K0AX-2A9GH&edm=ABfd0MgBAAAA&ccb=7-5&oh=00_AfCmjINQpAkYO_98P2FRnvE7Qgq_yQehP1wT28hvX4rsFg&oe=65815516&_nc_sid=1f6e71"
-               alt="Sweetiebelle19 IG" />@sweetiebelle19
+      <!-- Friends kutuları: cam, cloud border, extra emoji ve bubble -->
+      <div class="profile-card glass" title="m1miiqz.x1">
+        <a class="profile-btn friend-btn aero-border" href="https://instagram.com/m1miiqz.x1" target="_blank">
+          <img class="avatar" src="https://pbs.twimg.com/profile_images/1748080247303987200/dwQdUZGe_400x400.jpg" alt="m1miiqz.x1">
+          <span class="profile-username">💙 @m1miiqz.x1 💙</span>
         </a>
+        <div class="profile-tag">Femboy Lover 🌈</div>
+        <img src="https://i.imgur.com/nh7prXX.png" class="sticker sticker2" alt="star">
       </div>
-      <div class="other-accounts">
-        <a href="https://instagram.com/your_alt_account" target="_blank" class="profile-link">
-          <img src="https://instagram.fkiv6-1.fna.fbcdn.net/v/t51.2885-19/367799082_852386836647997_9041921754295145153_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fkiv6-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=diKGvY7bBUoAX8_U1w-&edm=ABfd0MgBAAAA&ccb=7-5&oh=00_AfCJso1kUJTkfKquFqXfZm1JwTQDxGfK8Ky9yKPKWdAwGQ&oe=65811379&_nc_sid=1f6e71" alt="Other IG" />@your_alt_account
+      <div class="profile-card glass" title="rari_aso">
+        <a class="profile-btn friend-btn aero-border" href="https://instagram.com/rari_aso" target="_blank">
+          <img class="avatar" src="https://static.wikia.nocookie.net/mlp/images/6/6b/Rarity_ID_S2E15.png" alt="rari_aso">
+          <span class="profile-username">💖 @rari_aso 💖</span>
         </a>
+        <div class="profile-tag">Designer 🎀</div>
+        <img src="https://cdn3.emoji.gg/emojis/2690-rarity.png" class="sticker sticker3" alt="rari">
+      </div>
+      <div class="profile-card glass" title="rainbow._.dashie">
+        <a class="profile-btn friend-btn aero-border" href="https://instagram.com/rainbow._.dashie" target="_blank">
+          <img class="avatar" src="https://static.wikia.nocookie.net/mlp/images/8/80/Rainbow_Dash_ID_S1E1.png" alt="rainbow._.dashie">
+          <span class="profile-username">💚 @rainbow._.dashie 💚</span>
+        </a>
+        <div class="profile-tag">Fast AF 🏳️‍🌈</div>
+        <img src="https://static.wikia.nocookie.net/mlp/images/6/64/Rainbow_Dash_mark.png" class="sticker sticker4" alt="rainbow">
       </div>
     </div>
-  </main>
-
-  <!-- Hakkımda pop-up -->
-  <div class="about-note" id="aboutNote">
-    <button class="close-btn" id="closeNote">&times;</button>
-    <div class="hearts-row">
-      <span class="heart">💖</span>
-      <span class="heart">💖</span>
-      <span class="heart">💖</span>
+    <!-- Menü bar: cutecore neon aero butonlar -->
+    <div class="menu-bar">
+      <button class="menu-btn neon-btn">Friends</button>
+      <button class="menu-btn neon-btn">Profile</button>
     </div>
-
-    <div class="not-content">
-      Heeyy I'm Astie. I'm 19 years old.<br>
-      My hobby is reading and I love MLP especially Sweetie Belle ^^
+    <!-- About pop-up: cam efekti, neon shadow, hearts, cloud -->
+    <div class="about-popup glass" id="aboutPopup">
+      <img class="cloud cloud-popup" src="https://static.vecteezy.com/system/resources/previews/023/673/687/original/cloud-transparent-free-png.png" alt="">
+      <button class="close-btn" id="closePopup">&times;</button>
+      <div class="heart-row">
+        <span class="heart">💖</span>
+        <span class="heart">💖</span>
+        <span class="heart">💖</span>
+      </div>
+      <div class="about-text">
+        Heeyy I'm Astie. I'm 19 years old.<br>
+        My hobby is reading and I love MLP especially Sweetie Belle ^^
+      </div>
+      <div class="about-footer">
+        If you're interested.. this is my story :3<br>
+        <a href="https://www.fimfiction.net/story/576798/enchanting-stories" target="_blank">Enchanting Stories</a>
+      </div>
+      <div class="heart-row">
+        <span class="heart">💖</span>
+        <span class="heart">💖</span>
+        <span class="heart">💖</span>
+      </div>
     </div>
-    <div class="divider"></div>
-    <div class="not-footer">
-      If you're interested.. this is my story :3<br>
-      <a class="story-link" href="https://www.fimfiction.net/story/576798/enchanting-stories" target="_blank">Enchanting Stories</a>
-    </div>
-    <div class="hearts-row" style="margin-top:10px">
-      <span class="heart">💖</span>
-      <span class="heart">💖</span>
-      <span class="heart">💖</span>
+    <!-- Sabit mesaj kutusu: glass, neon border, bubble sticker -->
+    <div class="msg-bar glass">
+      <img class="bubble bubble-msg" src="https://pngimg.com/d/bubble_PNG61.png" alt="">
+      <input class="msg-input" type="text" placeholder="Send a cute message...">
+      <button class="send-btn neon-btn">Send</button>
     </div>
   </div>
-
-  <div class="msg-bar">
-    <input class="msg-input" type="text" placeholder="Send a cute message...">
-    <button class="send-msg-btn">Send</button>
-  </div>
-
   <script src="script.js"></script>
 </body>
 </html>
