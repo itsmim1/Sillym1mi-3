@@ -1,157 +1,31 @@
-// script.js içeriği - Tüm etkileşim ve rastgele arka plan ayarları burada
+document.addEventListener("DOMContentLoaded", () => {
+  // Hakkında popup
+  const aboutBtn = document.getElementById("aboutBtn");
+  const aboutNote = document.getElementById("aboutNote");
+  const closeNote = document.getElementById("closeNote");
+  
+  aboutBtn.addEventListener("click", function() {
+    aboutNote.style.display = "block";
+    aboutBtn.classList.add('active');
+  });
+  closeNote.addEventListener("click", function() {
+    aboutNote.style.display = "none";
+    aboutBtn.classList.remove('active');
+  });
 
-document.addEventListener('DOMContentLoaded', () => {
-
-    // --- RASTGELE ARKA PLAN YÖNETİMİ ---
-    const backgrounds = [
-        'img/arka_plan_frutiger.jpg', // <--- Sizin indirdiğiniz ana görsel
-        'img/aero_bg_1.jpg',
-        'img/aero_bg_2.png',
-        'img/aero_bg_3.webp',
-        'img/sweetiebelle_profile.png' // Profil resminiz de arka plan olarak gelebilir
-    ];
-    
-    // Rastgele seç ve arka planı ayarla
-    const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-    document.body.style.backgroundImage = `url('${randomBg}')`;
-    document.body.style.backgroundColor = '#C0EFFF'; // Resim yüklenmezse yedek renk
-
-    // --- BUTON VE BÖLÜMLER ARASI GEÇİŞ ---
-    const profileSection = document.getElementById('about-me'); 
-    const friendsSection = document.getElementById('friends-section');
-    const navItems = document.querySelectorAll('.nav-item');
-    
-    const astieBioBtn = document.getElementById('show-astie-bio');
-    const profileBtn = document.getElementById('show-profile-btn');
-    const astieBioCard = document.getElementById('astie-bio');
-    const bioCloseBtn = document.getElementById('bio-close-btn');
-
-    // Not Kağıdını Göster/Gizle
-    astieBioBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        astieBioCard.classList.remove('hidden');
-    });
-
-    bioCloseBtn.addEventListener('click', () => {
-        astieBioCard.classList.add('hidden');
-    });
-
-    const hideAllSections = () => {
-        profileSection.classList.add('hidden');
-        friendsSection.classList.add('hidden');
-    };
-
-    navItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-            
-            if (e.target.id === 'show-astie-bio') return; 
-
-            e.preventDefault();
-            navItems.forEach(i => i.classList.remove('active'));
-            e.target.classList.add('active');
-
-            astieBioCard.classList.add('hidden'); 
-
-            hideAllSections();
-
-            if (e.target.id === 'show-profile-btn') {
-                profileSection.classList.remove('hidden');
-            } else if (e.target.id === 'show-friends-btn') {
-                friendsSection.classList.remove('hidden');
-                renderFriends();
-            }
-        });
-    });
-
-    profileSection.classList.remove('hidden');
-    profileBtn.classList.add('active');
-
-
-    // --- ARKADAŞLAR LİSTESİ ---
-    const friends = [
-        { name: "@m1miiqz.x1", handle: "m1miiqz.x1", url: "https://www.instagram.com/m1miiqz.x1/", pic: "img/m1miiqz_profile.png" },
-        { name: "@rainbow._.dashie", handle: "rainbow._.dashie", url: "https://www.instagram.com/rainbow._.dashie/", pic: "img/rainbowdash_profile.png" },
-        { name: "@rari_aso", handle: "rari_aso", url: "https://www.instagram.com/rari_aso/", pic: "img/rariaso_profile.png" }
-    ];
-
-    function renderFriends() {
-        const friendsGrid = document.querySelector('.friends-grid');
-        friendsGrid.innerHTML = '';
-        
-        friends.forEach(friend => {
-            const card = document.createElement('div');
-            card.classList.add('friend-card');
-            
-            card.innerHTML = `
-                <a href="${friend.url}" target="_blank" style="text-decoration:none; color:#333;">
-                    <img src="${friend.pic}" alt="${friend.name}" class="friend-pic aero-shine" onerror="this.onerror=null;this.src='https://via.placeholder.com/100/A0B2C0/FFFFFF?text=Pony';">
-                    <h4 style="margin: 0; font-weight: 600;">${friend.name}</h4>
-                    <p style="margin: 5px 0 0; font-size: 0.9em;">Visit Profile</p>
-                </a>
-            `;
-            friendsGrid.appendChild(card);
-        });
+  // Mesaj gönder
+  document.querySelector('.send-msg-btn').addEventListener('click', function(e) {
+    const input = document.querySelector('.msg-input');
+    if (input.value.trim()) {
+      alert('Mesajın gönderildi: ' + input.value.trim());
+      input.value = '';
     }
+  });
 
-    // --- MESAJ KUTUSU İŞLEVSELLİĞİ (AYNI) ---
-    const messageForm = document.getElementById('message-form');
-    const nameInput = document.getElementById('name-input');
-    const messageInput = document.getElementById('message-input');
-    const messagesContainer = document.getElementById('messages-container');
-    
-    let messages = JSON.parse(localStorage.getItem('aeroMessages')) || [];
-
-    function renderMessages() {
-        // Mesajları görüntüleme kodu buradadır
-        messagesContainer.innerHTML = '';
-        if (messages.length === 0) {
-            messagesContainer.innerHTML = '<p style="text-align:center; color:#888;">No messages yet. Be the first!</p>';
-            return;
-        }
-
-        messages.forEach((msg, index) => {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message');
-            messageDiv.innerHTML = `
-                <div class="message-header">
-                    <span>${msg.name} says:</span>
-                    <button class="delete-btn" data-index="${index}">✖</button>
-                </div>
-                <div class="message-content">${msg.text}</div>
-            `;
-            messagesContainer.prepend(messageDiv);
-        });
-        
-        document.querySelectorAll('.delete-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const index = parseInt(e.target.getAttribute('data-index'));
-                deleteMessage(messages.length - 1 - index);
-            });
-        });
+  // Enter ile mesaj gönderme
+  document.querySelector('.msg-input').addEventListener('keypress', function(e) {
+    if (e.key === "Enter") {
+      document.querySelector('.send-msg-btn').click();
     }
-
-    function deleteMessage(index) {
-        messages.splice(index, 1);
-        localStorage.setItem('aeroMessages', JSON.stringify(messages));
-        renderMessages();
-    }
-
-    messageForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const name = nameInput.value.trim();
-        const text = messageInput.value.trim();
-        
-        if (name && text) {
-            const newMessage = { name, text, date: new Date().toLocaleString() };
-            messages.push(newMessage);
-            localStorage.setItem('aeroMessages', JSON.stringify(messages));
-            
-            nameInput.value = '';
-            messageInput.value = '';
-            renderMessages();
-        }
-    });
-
-    renderMessages();
+  });
 });
