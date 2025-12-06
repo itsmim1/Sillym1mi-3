@@ -2,63 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Astie Social · Frutiger Aero</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astie - Cutecore & Frutiger Aero</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Cutecore/cool bir font ve stil -->
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="aero-bg-decor"></div>
-  <div class="main-container">
-    <div class="profile-row">
-      <!-- About Me Card -->
-      <div class="aero-card">
-        <button class="aero-btn" id="aboutBtn">
-          <span>About Me</span>
-        </button>
+  <!-- Frutiger Aero bulut detayı -->
+  <div class="frutiger-detail-left"></div>
+  <div class="frutiger-detail-right"></div>
+
+  <div class="top-bar">
+    <button class="cute-btn" id="aboutBtn">About Me</button>
+    <button class="cute-btn">Friends</button>
+    <button class="cute-btn">Profile</button>
+  </div>
+
+  <main>
+    <div class="center-user">
+      <div class="profile-avatar">
+        <!-- Instagram profilinden avatar -->
+        <img src="https://instagram.flhr1-1.fna.fbcdn.net/v/t51.2885-19/373923181_2362603350605973_2820190515320208717_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.flhr1-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=UaObgRku6K0AX-2A9GH&edm=ABfd0MgBAAAA&ccb=7-5&oh=00_AfCmjINQpAkYO_98P2FRnvE7Qgq_yQehP1wT28hvX4rsFg&oe=65815516&_nc_sid=1f6e71" alt="Sweetiebelle19 IG" />
       </div>
-      <!-- Sweetiebelle19 Card -->
-      <div class="aero-card main-profile">
-        <img class="avatar-main" alt="Sweetiebelle19" src="https://i.pinimg.com/originals/6c/f2/53/6cf25334f613d029bc9f7f4f571f3a13.png" />
-        <a href="https://instagram.com/sweetiebelle19" target="_blank" class="profile-main-link">
-          @sweetiebelle19
+      <div class="profile-main">
+        <a href="https://instagram.com/sweetiebelle19" target="_blank" class="profile-link">
+          <img src="https://instagram.flhr1-1.fna.fbcdn.net/v/t51.2885-19/373923181_2362603350605973_2820190515320208717_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.flhr1-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=UaObgRku6K0AX-2A9GH&edm=ABfd0MgBAAAA&ccb=7-5&oh=00_AfCmjINQpAkYO_98P2FRnvE7Qgq_yQehP1wT28hvX4rsFg&oe=65815516&_nc_sid=1f6e71"
+               alt="Sweetiebelle19 IG" />@sweetiebelle19
         </a>
       </div>
-      <!-- Friends Card -->
-      <div class="aero-card friend-card">
-        <div class="friend">
-          <img class="friend-avatar" src="https://i.pinimg.com/originals/fc/8b/ba/fc8bba9c655d1cd2049f8ae194d8ea23.png" alt="m1miiqz.x1" />
-          <a href="https://instagram.com/m1miiqz.x1" target="_blank">@m1miiqz.x1</a>
-        </div>
-        <div class="friend">
-          <img class="friend-avatar" src="https://i.pinimg.com/originals/da/2c/fe/da2cfea28d1d2d37e7b5f9e9cdfa755e.png" alt="rari aso"/>
-          <a href="https://instagram.com/rari_aso" target="_blank">@rari_aso</a>
-        </div>
-        <div class="friend">
-          <img class="friend-avatar" src="https://i.pinimg.com/originals/5a/13/26/5a13262f9bbfea582aca374e13ddb4f5.png" alt="rainbow._.dashie"/>
-          <a href="https://instagram.com/rainbow._.dashie" target="_blank">@rainbow._.dashie</a>
-        </div>
+      <div class="other-accounts">
+        <a href="https://instagram.com/your_alt_account" target="_blank" class="profile-link">
+          <img src="https://instagram.fkiv6-1.fna.fbcdn.net/v/t51.2885-19/367799082_852386836647997_9041921754295145153_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fkiv6-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=diKGvY7bBUoAX8_U1w-&edm=ABfd0MgBAAAA&ccb=7-5&oh=00_AfCJso1kUJTkfKquFqXfZm1JwTQDxGfK8Ky9yKPKWdAwGQ&oe=65811379&_nc_sid=1f6e71" alt="Other IG" />@your_alt_account
+        </a>
       </div>
     </div>
-    <!-- Hakkımda Notu -->
-    <div class="about-popup" id="aboutNote">
-      <button class="close-btn" id="closeNote">&times;</button>
-      <div class="hearts-row">💖💖💖</div>
-      <div class="note-content">
-        Heeyy I'm Astie. I'm 19 years old.<br>
-        My hobby is reading and I love MLP especially Sweetie Belle ^^
-      </div>
-      <div class="note-footer">
-        If you're interested.. this is my story :3<br>
-        <a href="https://www.fimfiction.net/story/576798/enchanting-stories" target="_blank">Enchanting Stories</a>
-      </div>
-      <div class="hearts-row">💖💖💖</div>
+  </main>
+
+  <!-- Hakkımda pop-up -->
+  <div class="about-note" id="aboutNote">
+    <button class="close-btn" id="closeNote">&times;</button>
+    <div class="hearts-row">
+      <span class="heart">💖</span>
+      <span class="heart">💖</span>
+      <span class="heart">💖</span>
     </div>
-    <!-- Mesaj barı -->
-    <div class="msg-bar">
-      <input class="msg-input" type="text" placeholder="Send a cute message...">
-      <button class="send-msg-btn">Send</button>
+
+    <div class="not-content">
+      Heeyy I'm Astie. I'm 19 years old.<br>
+      My hobby is reading and I love MLP especially Sweetie Belle ^^
+    </div>
+    <div class="divider"></div>
+    <div class="not-footer">
+      If you're interested.. this is my story :3<br>
+      <a class="story-link" href="https://www.fimfiction.net/story/576798/enchanting-stories" target="_blank">Enchanting Stories</a>
+    </div>
+    <div class="hearts-row" style="margin-top:10px">
+      <span class="heart">💖</span>
+      <span class="heart">💖</span>
+      <span class="heart">💖</span>
     </div>
   </div>
+
+  <div class="msg-bar">
+    <input class="msg-input" type="text" placeholder="Send a cute message...">
+    <button class="send-msg-btn">Send</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
