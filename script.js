@@ -1,5 +1,6 @@
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Popup: About
+  // Hakkımda popup
   const aboutBtn = document.getElementById("aboutBtn");
   const aboutPopup = document.getElementById("aboutPopup");
   const closePopup = document.getElementById("closePopup");
@@ -11,8 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     aboutPopup.style.display = "none";
     aboutBtn.classList.remove('active');
   });
-
-  // Alt kutudan mesaj gönderme
+  // Sabit mesaj kutusu
   document.querySelector('.send-btn').addEventListener('click', function(e) {
     const input = document.querySelector('.msg-input');
     if (input.value.trim()) {
