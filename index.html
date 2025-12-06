@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sweetie Belle's Aero Bio</title>
+    
     <link rel="stylesheet" href="style.css"> 
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,7 +13,10 @@
 
     <div class="container">
         <nav class="aero-nav">
-            <a href="#" class="nav-item active">About Me</a>
+            <a href="#" class="nav-item" id="show-astie-bio">About Me</a>
+            
+            <a href="#" class="nav-item active" id="show-profile-btn">Profile</a> 
+            
             <a href="#friends-section" class="nav-item" id="show-friends-btn">Friends</a>
         </nav>
 
@@ -48,6 +52,22 @@
             </section>
 
         </div>
+    </div>
+
+    <div id="astie-bio" class="hidden">
+        <button id="bio-close-btn">✖</button>
+        <p>
+            <span class="heart-deco">💖</span> Heeyy I'm Astie. <span class="heart-deco">💖</span><br>
+            I'm 19 years old.<br>
+            My hobby is reading and i love MLP especially Sweetie Belle ^^
+        </p>
+        <hr>
+        <p style="font-style: italic;">
+            If you're interested.. this is my story :3
+        </p>
+        <a href="https://www.fimfiction.net/story/576798/enchanting-stories" target="_blank" style="color: var(--aero-pink-dark); font-weight: 700;">
+            Enchanting Stories Link
+        </a>
     </div>
 
     <script src="script.js"></script> 
