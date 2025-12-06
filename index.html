@@ -1,3 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweetie Belle's Aero Bio</title>
     <link rel="stylesheet" href="style.css"> 
-    </head>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <nav class="aero-nav">
+            <a href="#" class="nav-item active">About Me</a>
+            <a href="#friends-section" class="nav-item" id="show-friends-btn">Friends</a>
+        </nav>
+
+        <div id="main-content">
+            
+            <section id="about-me" class="aero-card content-section">
+                
+                <div class="profile-header">
+                    <a href="https://www.instagram.com/sweetiebelle19" target="_blank" class="instagram-link">
+                        <img src="img/sweetiebelle_profile.png" alt="Sweetie Belle Profile" class="profile-pic aero-shine">
+                        <h2 class="aero-text">@sweetiebelle19</h2>
+                    </a>
+                </div>
+                
+                <p>Hello! I'm Sweetie Belle. I love music, singing, and hanging out with my friends. Welcome to my Aero Bio page!</p>
+
+                <div class="message-section">
+                    <h3>Leave a Message!</h3>
+                    <form id="message-form">
+                        <input type="text" id="name-input" placeholder="Your Name" required>
+                        <textarea id="message-input" placeholder="Write your message here..." required></textarea>
+                        <button type="submit" class="aero-button">Send Message</button>
+                    </form>
+                    <div id="messages-container" class="messages-container aero-scrollbar">
+                        </div>
+                </div>
+            </section>
+
+            <section id="friends-section" class="aero-card content-section hidden">
+                <h2 class="aero-text">My Awesome Friends</h2>
+                <div class="friends-grid">
+                    </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+
+</body>
+</html>
