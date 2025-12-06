@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // About popup toggle
+  // Hakkında popup
   const aboutBtn = document.getElementById("aboutBtn");
   const aboutNote = document.getElementById("aboutNote");
   const closeNote = document.getElementById("closeNote");
