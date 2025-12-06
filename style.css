@@ -1,142 +1,229 @@
-/* style.css içeriği - Tüm tasarım ve hizalama ayarları burada */
-:root {
-    --aero-blue: rgba(140, 200, 255, 0.7); 
-    --aero-pink-light: rgba(255, 192, 203, 0.8); 
-    --aero-pink-dark: #FF69B4; 
-    --aero-shine: rgba(255, 255, 255, 0.6); 
-    --aero-shadow: rgba(0, 0, 0, 0.2);
-    --aero-green: #90EE90; 
-    --aero-font: 'Poppins', sans-serif;
-    --gap: 15px; 
-    --border-radius: 15px; 
-}
-
 body {
-    font-family: var(--aero-font);
-    margin: 0;
-    padding: 0;
-    color: #333;
-    
-    /* ********** GENEL HİZALAMA ********** */
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    min-height: 100vh;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    
-    /* Arka plan JS ile ayarlanır, burası sadece varsayılan ayarlar */
-    background-size: cover;          
-    background-repeat: no-repeat;    
-    background-attachment: fixed;    
-    background-position: center center;
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Quicksand', cursive, sans-serif;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmmEnbl0OyI2tte7ug_-68avD_oPe46tr0JQvxd2stsQ&s=10') center/cover no-repeat fixed;
+  position: relative;
+  overflow-x: hidden;
+  user-select: none;
 }
 
-.container {
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 10px 30px var(--aero-shadow);
-    border-radius: 20px;
-    overflow: hidden;
-    backdrop-filter: blur(10px); 
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
+/* Frutiger aero fluffy detay görüntüler */
+.frutiger-detail-left,
+.frutiger-detail-right {
+  position: absolute;
+  top: 10px;
+  width: 120px;
+  height: 100px;
+  opacity: 0.09;
+  background: url('https://clipart-library.com/images_k/cloud-transparent-background/cloud-transparent-background-7.png') center/contain no-repeat;
+  z-index: 1;
+  pointer-events: none;
+}
+.frutiger-detail-left { left: 0;}
+.frutiger-detail-right { right: 0;}
+
+.top-bar {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 33px;
+  margin-bottom: 18px;
+  z-index: 2;
+}
+/* cutecore şeffaf pembe butonlar */
+.cute-btn {
+  background: rgba(255,192,203,0.22);
+  border: 2px solid #ffbfe7;
+  color: #df5599;
+  font-size: 1.19em;
+  border-radius: 38px;
+  padding: 12px 28px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .2s, color .2s, box-shadow .2s;
+  box-shadow: 0 2px 14px 3px rgba(244,167,191,0.21);
+  margin: 0 5px;
+  outline: none;
+}
+.cute-btn:hover,
+.cute-btn.active {
+  background: rgba(255,192,203,0.32);
+  color: #cc3886;
+  box-shadow: 0 2px 30px 4px rgba(244,167,191,0.23);
 }
 
-/* Navigasyon Stili (Butonlar) */
-.aero-nav {
-    display: flex;
-    justify-content: center; 
-    gap: var(--gap); 
-    background: transparent; 
-    padding: var(--gap);
-    width: 100%; 
-    box-sizing: border-box;
+/* Ortadaki kullanıcı bölümü */
+.center-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6px;
+}
+.profile-avatar img {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 2.5px solid #ffc3de;
+  box-shadow: 0 2px 14px 3px rgba(244,167,191,0.41);
+  background: rgba(255,255,255,0.20);
+}
+.profile-main {
+  font-size: 1.22em;
+  color: #d94890;
+  margin-top: 11px;
+  font-weight: bold;
+  background: rgba(255,192,203,0.18);
+  border-radius: 18px;
+  border: 1px solid #ffe9f1;
+  padding: 7px 13px;
+  letter-spacing: 1px;
+}
+.profile-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: #f2469b;
+  background: rgba(255,192,203,0.16);
+  border-radius: 22px;
+  padding: 5px 13px 5px 6px;
+  border: 1.5px solid #ffd6eb;
+  font-size: 1em;
+  transition: background 0.18s, color 0.19s;
+  box-shadow: 1px 1px 14px 2px rgba(244,167,191,0.15);
+}
+.profile-link img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1.5px solid #ffc3de;
+}
+.profile-link:hover {
+  background: rgba(255,192,203,0.27);
+  color: #ca3886;
+}
+.other-accounts {
+  margin-top: 13px;
 }
 
-.nav-item {
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #000;
-    font-weight: 700;
-    background: var(--aero-pink-light);
-    border: 2px solid var(--aero-shine);
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 10px var(--aero-shadow), inset 0 0 10px var(--aero-shine);
-    text-shadow: 1px 1px 2px white;
-    transition: all 0.2s;
+/* Hakkımda pop-up */
+.about-note {
+  position: fixed;
+  left: 50%; top: 110px;
+  transform: translate(-50%, 0);
+  min-width: 320px;
+  max-width: 440px;
+  background: #fff5fe;
+  border: 2px solid #ffd6eb;
+  border-radius: 18px;
+  box-shadow: 0 10px 37px 7px rgba(244,167,191,0.21);
+  z-index: 999;
+  padding: 23px 10px 15px 10px;
+  text-align: center;
+  user-select: text;
+  display: none;
+  animation: popUp .33s;
+}
+@keyframes popUp {
+  0%{ opacity:0; transform: translate(-50%, 22px) scale(0.82);}
+  100%{ opacity:1; transform: translate(-50%, 0px) scale(1);}
+}
+.hearts-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+.heart {
+  font-size: 1.38em;
+  color: #f871ca;
+  filter: drop-shadow(0 2px 3px #f7c3e9);
+}
+.not-content {
+  font-size: 1.10em;
+  color: #9a3883;
+  margin-bottom: 15px;
+  font-family: inherit;
+}
+.divider {
+  width: 70%;
+  margin: 10px auto;
+  border-bottom: 1.2px dashed #f6cae3;
+}
+.not-footer {
+  margin-top: 6px;
+  font-size: .99em;
+  color: #df5599;
+}
+.story-link {
+  color: #ab2698;
+  text-decoration: underline;
+  word-break: break-all;
+  font-size: 1em;
+  font-family: monospace;
+}
+.close-btn {
+  position: absolute;
+  right: 9px; top: 9px;
+  color: #e271b4;
+  background: #ffe3f8c3;
+  border: 1px solid #f9caf0;
+  border-radius: 14px;
+  font-size: 1.18em;
+  cursor: pointer;
+  padding: 1px 9px;
+  box-shadow: 1px 2px 7px 1px #ffe0fa48;
+}
+.close-btn:hover {
+  background: #ffc3eb;
+  color: #b61a6a;
 }
 
-.nav-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), inset 0 0 15px var(--aero-shine);
+/* Mesaj kutusu */
+.msg-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: rgba(255,192,203,0.21);
+  border: 2px solid #ffd6eb;
+  border-radius: 16px;
+  width: 90vw;
+  max-width: 450px;
+  height: 54px;
+  box-shadow: 0 2px 34px 10px rgba(244,167,191,0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px;
+  z-index: 998;
 }
-
-.nav-item.active {
-    background: var(--aero-pink-dark);
-    color: white;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-    border-color: white;
+.msg-input {
+  border: none;
+  background: transparent;
+  color: #ca3886;
+  font-size: 1.09em;
+  font-family: inherit;
+  flex: 1;
+  padding: 6px 8px;
+  outline: none;
+  margin: 0 7px;
 }
-
-/* Ana İçerik Kutusu (Profile ve Friends) */
-.aero-card {
-    background: rgba(255, 255, 255, 0.8); 
-    padding: var(--gap);
-    border-radius: 0 0 20px 20px;
-    width: 100%; 
-    box-sizing: border-box;
-    text-align: center; 
+.send-msg-btn {
+  background: rgba(255,106,176,0.16);
+  border: 2px solid #ffa5df;
+  color: #d94890;
+  border-radius: 14px;
+  padding: 6px 16px;
+  cursor: pointer;
+  font-size: 1.07em;
+  transition: background .14s, color .14s;
+  outline: none;
+  box-shadow: 1px 1px 10px 1px #f5daf648;
 }
-
-/* Resimler ve Yer Tutucular */
-.profile-pic, .friend-pic {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: #e0e0e0; /* Resim yüklenene kadar gri yer tutucu */
-    border: 5px solid var(--aero-pink-dark); 
-    box-shadow: 0 0 15px var(--aero-blue), 0 0 5px 3px var(--aero-pink-light);
-    transition: transform 0.2s;
+.send-msg-btn:hover {
+  background: #ffe3fa;
+  color: #b61a6a;
 }
-
-/* Not Kağıdı (Astie Bio) Stili */
-#astie-bio {
-    /* %95 Şeffaflık */
-    background: rgba(255, 192, 203, 0.95); 
-    border: 3px dashed var(--aero-pink-dark); 
-    /* Konumlandırma */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    width: 300px;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px var(--aero-shadow);
-    z-index: 1000;
-    text-align: center;
-    font-family: 'Comic Sans MS', cursive; 
-}
-
-.heart-deco {
-    color: var(--aero-pink-dark);
-    font-size: 1.2em;
-    margin: 0 5px;
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* Arkadaşlar Kartları (Boşluk ayarı ve stil) */
-.friends-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--gap); /* Kutular arası boşluk */
-    padding: var(--gap);
-    justify-content: center;
-}
-/* Diğer mesaj kutusu ve buton stilleri önceki koddan alınmıştır */
